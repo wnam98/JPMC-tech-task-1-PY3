@@ -29,7 +29,8 @@ QUERY = "http://localhost:8080/query?id={}"
 # 500 server request
 N = 500
 
-def getDataPoint(quote):
+
+def get_data_point(quote):
 	""" Produce all of the needed values to generate a datapoint """
 	""" ------------- Update this function ------------- """
 	stock = quote['stock']
@@ -38,11 +39,13 @@ def getDataPoint(quote):
 	price = bid_price
 	return stock, bid_price, ask_price, price
 
-def getRatio(price_a, price_b):
+
+def get_ratio(price_a, price_b):
 	""" Get ratio of price_a and price_b """
 	""" ------------- Update this function ------------- """
 	""" Also create some unit tests for this function in client_test.py """
 	return 1
+
 
 # Main
 if __name__ == "__main__":
@@ -53,7 +56,7 @@ if __name__ == "__main__":
 
 		""" ----------- Update to get the ratio --------------- """
 		for quote in quotes:
-			stock, bid_price, ask_price, price = getDataPoint(quote)
+			stock, bid_price, ask_price, price = get_data_point(quote)
 			print ("Quoted %s at (bid:%s, ask:%s, price:%s)" % (stock, bid_price, ask_price, price))
 
-		print ("Ratio %s" % getRatio(price, price))
+		print ("Ratio %s" % get_ratio(price, price))

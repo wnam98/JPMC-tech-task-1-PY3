@@ -36,15 +36,15 @@ def get_data_point(quote):
 	stock = quote['stock']
 	bid_price = float(quote['top_bid']['price'])
 	ask_price = float(quote['top_ask']['price'])
-	price = bid_price
-	return stock, bid_price, ask_price, price
+	price = (bid_price + ask_price)/2
+	return price
 
 
 def get_ratio(price_a, price_b):
 	""" Get ratio of price_a and price_b """
 	""" ------------- Update this function ------------- """
 	""" Also create some unit tests for this function in client_test.py """
-	return 1
+	return price_a / price_b
 
 
 # Main
@@ -59,4 +59,4 @@ if __name__ == "__main__":
 			stock, bid_price, ask_price, price = get_data_point(quote)
 			print ("Quoted %s at (bid:%s, ask:%s, price:%s)" % (stock, bid_price, ask_price, price))
 
-		print ("Ratio %s" % get_ratio(price, price))
+		print ("Ratio %s" % get_ratio(bid_price, ask_price))
